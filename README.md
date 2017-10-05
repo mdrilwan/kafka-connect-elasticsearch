@@ -1,12 +1,17 @@
-Steps:
+You can start using kafka connect for elasticsearch sink (version 2.x) by following the below steps.
 
-Clone the project
+Step 1 : Clone the project
 
-Build the jar file
+Step 2 : Create directory lib
 
-Use the below configuration file:
+Step 3 : Download the required libraries from https://drive.google.com/drive/folders/0ByruaDAVhDDPVGU2MFJoQ1dpbEk and place it in lib folder
 
-    connect-elasticsearch-sink.properties:
+Step 4 : Compile and create jar file by using the below command
+
+javac -cp .:lib/elasticsearch-2.3.4.jar:lib/kafka-clients-0.10.2.1.jar:lib/connect-api-0.10.2.1.jar src/com/test/kafka/connect/elasticsearch/ElasticsearchSink*.java
+
+Step 5: Use the below configuration file - connect-elasticsearch-sink.properties
+
         name=elasticsearch-schema-sink
         connector.class=com.test.kafka.connect.elasticsearch.ElasticsearchSinkConnector
         tasks.max=1
