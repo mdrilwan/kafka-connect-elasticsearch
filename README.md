@@ -1,6 +1,9 @@
 Steps:
+
 Clone the project
+
 Build the jar file
+
 Use the below configuration file:
 
     connect-elasticsearch-sink.properties:
