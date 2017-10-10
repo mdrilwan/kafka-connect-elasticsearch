@@ -10,7 +10,9 @@ Step 4 : Compile and create jar file by using the below command
 
 javac -cp .:lib/elasticsearch-2.3.4.jar:lib/kafka-clients-0.10.2.1.jar:lib/connect-api-0.10.2.1.jar src/com/test/kafka/connect/elasticsearch/ElasticsearchSink*.java
 
-jar -cvf connect-elasticsearch-sink src/
+cd src
+
+jar -cvf connect-elasticsearch-sink com/
 
 Step 5: Use the below configuration file - connect-elasticsearch-sink.properties
 
