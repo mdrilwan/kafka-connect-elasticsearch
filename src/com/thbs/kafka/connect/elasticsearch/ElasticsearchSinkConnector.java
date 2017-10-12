@@ -1,4 +1,4 @@
-package com.test.kafka.connect.elasticsearch;
+package com.thbs.kafka.connect.elasticsearch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
