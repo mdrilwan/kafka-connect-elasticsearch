@@ -1,0 +1,184 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.test.kafka.connect</groupId>
+  <artifactId>elasticsearch</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+	  <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+	<dependency>
+	    <groupId>org.apache.kafka</groupId>
+	    <artifactId>kafka-clients</artifactId>
+	    <version>0.10.0.0</version>
+	</dependency>
+	  <!-- https://mvnrepository.com/artifact/org.apache.kafka/connect-api -->
+	<dependency>
+	    <groupId>org.apache.kafka</groupId>
+	    <artifactId>connect-api</artifactId>
+	    <version>0.10.0.0</version>
+	</dependency>
+	  <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+	<dependency>
+	    <groupId>org.elasticsearch</groupId>
+	    <artifactId>elasticsearch</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+	  <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/transport -->
+	<dependency>
+    	<groupId>org.elasticsearch.client</groupId>
+    	<artifactId>transport</artifactId>
+    	<version>5.2.2</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/com.carrotsearch/hppc -->
+	<dependency>
+	    <groupId>com.carrotsearch</groupId>
+	    <artifactId>hppc</artifactId>
+	    <version>0.7.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+	<dependency>
+	    <groupId>joda-time</groupId>
+	    <artifactId>joda-time</artifactId>
+	    <version>2.9.5</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-core</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>2.7</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queries -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-queries</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-highlighter -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-highlighter</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-suggest -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-suggest</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-join -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-join</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-queryparser</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-spatial -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-spatial</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-sandbox -->
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-sandbox</artifactId>
+	    <version>6.4.1</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/com.tdunning/t-digest -->
+	<dependency>
+	    <groupId>com.tdunning</groupId>
+	    <artifactId>t-digest</artifactId>
+	    <version>3.0</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty -->
+	<dependency>
+	    <groupId>io.netty</groupId>
+	    <artifactId>netty</artifactId>
+	    <version>3.4.6.Final</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+	<dependency>
+	    <groupId>io.netty</groupId>
+	    <artifactId>netty-all</artifactId>
+	    <version>4.1.16.Final</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/lang-mustache-client -->
+	<dependency>
+	    <groupId>org.elasticsearch.plugin</groupId>
+	    <artifactId>lang-mustache-client</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/percolator-client -->
+	<dependency>
+	    <groupId>org.elasticsearch.plugin</groupId>
+	    <artifactId>percolator-client</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/reindex-client -->
+	<dependency>
+	    <groupId>org.elasticsearch.plugin</groupId>
+	    <artifactId>reindex-client</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/transport-netty4-client -->
+	<dependency>
+	    <groupId>org.elasticsearch.plugin</groupId>
+	    <artifactId>transport-netty4-client</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/transport-netty3-client -->
+	<dependency>
+	    <groupId>org.elasticsearch.plugin</groupId>
+	    <artifactId>transport-netty3-client</artifactId>
+	    <version>5.2.2</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+	<dependency>
+	    <groupId>org.apache.httpcomponents</groupId>
+	    <artifactId>httpclient</artifactId>
+	    <version>4.5.3</version>
+	</dependency>
+  </dependencies>
+</project>

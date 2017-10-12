@@ -1,11 +1,20 @@
 package com.test.kafka.connect.elasticsearch;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.net.InetSocketAddress;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
@@ -18,6 +27,12 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 public class ElasticsearchSinkTask extends SinkTask {
 
@@ -25,6 +40,8 @@ public class ElasticsearchSinkTask extends SinkTask {
 	private String documentName;
 	private TransportClient client;
 	private Long bulksize;
+	private static String value1;
+	private static String dt;
 
 	@Override
 	public String version() {
@@ -49,7 +66,8 @@ public class ElasticsearchSinkTask extends SinkTask {
             	SinkRecord record = records.get(i);
 
             	Map<String, String> jsonMap = new HashMap<String, String>();
-            	jsonMap.put("message", record.value().toString());
+				jsonMap.put("message", record.value().toString());
+
             	String topic = record.topic();
             	StringBuilder index = new StringBuilder()
                         	.append(indexMapping.get(topic));
